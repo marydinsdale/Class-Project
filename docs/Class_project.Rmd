@@ -25,8 +25,6 @@ ggplot(data = bike) +
 
 ### R will let you make graphs that don't make sense
 ```{r bike2}
-source("bike\ stuff.R")
-
 ggplot(data = bike) + 
   geom_bar(mapping = aes(x = name, fill = dow), position = "fill")
 ```

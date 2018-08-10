@@ -1,5 +1,6 @@
 library(readxl)
 library(lubridate)
+library(tidyverse)
 
 input_file <- "data/Hawthorne Tilikum Steel daily bike counts 073118.xlsx"
 bridge_name <- "Hawthorne"
@@ -74,7 +75,7 @@ bike %>%
 newbike <- bike %>%
   mutate(weirdnumber = total * counts)
 
-bikecounts
+bikecounts %>% 
   filter(is.na(westbound) | is.na(eastbound)) 
   
 # download data from a link with dplyr
@@ -178,15 +179,11 @@ ggplot(data = timebike) +
     group_by(HOUSEID) %>% 
     nest())
 
-le_vs_yr <- function(df) {
-  lm(lifeExp ~ I(year - 1950), data = df)
-}
+
 
 (trip_nested <- HHTriptype %>% 
     group_by(HH_RACE) %>% 
     nest())
-
-
 
 
 

@@ -15,9 +15,11 @@ library(ggplot2)
 
 ###Sometimes people ride their bikes on bridges!
 
-```{r bike, echo=FALSE}
+```{r bike, echo=FALSE, include = F}
 source("bike\ stuff.R")
+```
 
+```{r bikeplot, warning=F}
 ggplot(data = bike) + 
   geom_point(mapping = aes(x = date, y = counts, color = name)) 
 
@@ -25,8 +27,6 @@ ggplot(data = bike) +
 
 ### R will let you make graphs that don't make sense
 ```{r bike2}
-source("bike\ stuff.R")
-
 ggplot(data = bike) + 
   geom_bar(mapping = aes(x = name, fill = dow), position = "fill")
 ```
